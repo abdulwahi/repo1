@@ -6,6 +6,6 @@ job('demo') {
 
 job('demo2') {
     steps {
-        shell('echo Hello Abdul! && echo $USER && pwd && ls')
+        shell('echo Hello Abdul_jeyender! && echo $USER && pwd && ls')
     }
 }
