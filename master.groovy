@@ -1,7 +1,10 @@
 job('demo') {
-    steps {
-        shell('echo Hello Jeyender! && echo $USER && pwd && ls')
+    scm {
+        git('https://github.com/abdulwahi/repo1.git')
     }
+    steps {
+        shell('echo Hello Abdul_jeyender! && echo $USER && pwd && ls')
+        }
 }
 
 job('demo2') {
