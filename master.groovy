@@ -9,9 +9,3 @@ job('demo2') {
         shell('echo Hello Abdul! && echo $USER && pwd && ls')
     }
 }
-
-job('demo3') {
-    steps {
-        shell('echo Hello Abdul! && echo $USER && pwd && ls')
-    }
-}
