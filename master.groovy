@@ -15,7 +15,7 @@ branches.each {
         }
     }
         steps {
-        shell('ls -l')
+        shell('ls -l && echo "Execution from inside shell"')
     }
   }
 }
