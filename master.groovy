@@ -12,7 +12,6 @@ branches.each {
               github("${owner}/${project}")
             }
             branch("${branchName}")
-            createTag(false)
         }
     }
         steps {
