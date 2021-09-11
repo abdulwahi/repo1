@@ -1,17 +1,17 @@
 def owner = 'abdulwahi'
 def project = 'repo1'
-def branchApi = new URL("https://api.github.com/repos/${owner}/${project}/branches")
-def branches = new groovy.json.JsonSlurper().parse(branchApi.newReader())
-branches.each {
-  def branchName = it.name
-  def jobName = "${owner}-${project}-${branchName}".replaceAll('/','-')
+def repoApi = new URL("https://api.github.com/users/${owner}/repos")
+def repos = new groovy.json.JsonSlurper().parse(repoApi.newReader())
+repos.each {
+  def repoName = it.name
+  def jobName = "${owner}-${repoName}".replaceAll('/','-')
   job(jobName) {
     scm {
         git {
             remote {
               github("${owner}/${project}")
             }
-            branch("${branchName}")
+            branch("main")
         }
     }
         steps {
