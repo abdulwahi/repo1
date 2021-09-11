@@ -1,14 +1,22 @@
-job('demo') {
+def owner = 'abdulwahi'
+def project = 'repo1'
+def branchApi = new URL("https://api.github.com/repos/${owner}/${project}/branches")
+def branches = new groovy.json.JsonSlurper().parse(branchApi.newReader())
+branches.each {
+  def branchName = it.name
+  def jobName = "${owner}-${project}-${branchName}".replaceAll('/','-')
+  job(jobName) {
     scm {
-        git('https://github.com/abdulwahi/repo1.git')
-    }
-    steps {
-        shell('echo Hello Abdul_jeyender! && echo $USER && pwd && ls')
+        git {
+            remote {
+              github("${owner}/${project}")
+            }
+            branch("${branchName}")
+            createTag(false)
         }
-}
-
-job('demo2') {
-    steps {
-        shell('echo Hello Abdul_jeyender! && echo $USER && pwd && ls')
     }
+        steps {
+        shell('ls -l')
+    }
+  }
 }
