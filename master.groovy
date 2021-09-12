@@ -14,10 +14,11 @@ repos.each {
             branch("main")
         }
     }
-        steps {
-        shell('ls -l')
+       steps {
+                shell('ls -l')
     }
   }
+}
 
 pipelineJob('testing_pipeline') {
   definition {
@@ -43,6 +44,4 @@ pipelineJob('testing_pipeline') {
       sandbox()
     }
   }
-}
-
 }
