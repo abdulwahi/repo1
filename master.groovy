@@ -39,7 +39,6 @@ pipelineJob('testing_pipeline') {
                     }
                 }
             }
-        }
       '''.stripIndent())
       sandbox()
     }
