@@ -19,7 +19,7 @@ repos.each {
     }
   }
 
-pipelineJob(jobName) {
+pipelineJob('testing_pipeline') {
   definition {
     cps {
       script('''
@@ -44,4 +44,5 @@ pipelineJob(jobName) {
     }
   }
 }
+
 }
