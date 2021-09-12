@@ -5,19 +5,6 @@ def repos = new groovy.json.JsonSlurper().parse(repoApi.newReader())
 repos.each {
   def repoName = it.name
   def jobName = "${owner}-${repoName}".replaceAll('/','-')
-#  job(jobName) {
-#    scm {
-#        git {
-#            remote {
-#              github("${owner}/${project}")
-#            }
-#            branch("main")
-#        }
-#    }
-#       steps {
-#                       shell('ls -l')
-#    }
-#  }
 
 pipelineJob(jobName) {
   definition {
