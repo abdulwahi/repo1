@@ -13,7 +13,7 @@ pipelineJob(jobName) {
         pipeline {
             agent any
                 stages {
-                    stage('Docker image Build) {
+                    stage('Docker image Build') {
                         steps {
                             echo 'Image Build'
                         }
